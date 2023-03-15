@@ -1,0 +1,78 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1{
+	color: rgb(32, 94, 148);
+	text-align: center;
+	font-weight: bold;
+	font-size: 44px;
+}
+body{
+background-color: rgb(36, 35, 35);
+display: flex;
+justify-content: center;
+}
+
+button{
+	padding: 8px 10px 8px 10px;
+	border: 2px solid rgb(63, 53, 12);
+	background-color: #684c4c;
+	font-size: 14px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.table-block{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.table{
+	border: 1px solid #4b4d08;
+	width: 100%;
+	margin: 10px;
+	background: #265c49;
+}
+.table thead {
+	font-weight: bold;
+	padding: 5px;
+	background: #265c49;
+	border: 1px solid #666060;
+}
+.table th{
+	padding: 8px 16px;
+	text-align: left;
+}
+.table tbody th:nth-child(odd){
+	background: #f3b3b3;
+}
+.table tbody th:nth-child(even){
+	background: #824f4f;
+}
+
+.edit-btn{
+	background-color: rgb(65, 86, 152);
+	border: 2px solid blue;
+	margin: 4px;
+}
+
+.delete-btn{
+	background-color: #9f1717;
+	border: 2px solid rgb(54, 7, 7);
+}
+
+.btn-add{
+	background-color: #9f1717;
+	border: 2px solid rgb(54, 7, 7);
+}
+
+.btn-submit{
+	background-color: #9f1717;
+	border: 2px solid rgb(54, 7, 7);
+	margin-left: 34px;
+	margin-top: 8px;
+}

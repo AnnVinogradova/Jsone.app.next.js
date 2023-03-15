@@ -1,4 +1,9 @@
+import FeachApi from '../components/FeachApi'
+
+
 export default function HomePage() {
-	return <div>Welcome to Next.js!</div>
+	return <>
+		<FeachApi />
+	</>
 }
 
