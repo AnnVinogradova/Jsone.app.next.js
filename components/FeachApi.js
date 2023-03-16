@@ -35,17 +35,29 @@ export default function FeachAPI() {
 			)
 	}, [])
 
+
 	const getInputFormData = ({ id, username, email, phone, website }) => {
 		setNewRow({ id, username, email, phone, website })
 	}
 
 	// sortUsers.unshift(newRow)
-	// console.log(newRow)
+	console.log(newRow)
+
+	const handleDelete = async (user) => {
+		await axios.delete(url + "/" + user.id + user);
+		setContactUsers(contactUsers.filter((u) => u.id !== user.id))
+	}
+
+
 
 	return <>
 		<div className='table-block'>
 			<InputForm getInputFormData={getInputFormData} />
-			<Table contactUsers={contactUsers} sortUsers={sortUsers} />
+			<Table contactUsers={contactUsers}
+				sortUsers={sortUsers}
+				handleDelete={handleDelete}
+				
+			/>
 		</div>
 	</>
 }

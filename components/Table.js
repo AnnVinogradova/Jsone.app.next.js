@@ -1,10 +1,7 @@
 
-import SearchElement from "./searchElement"
-
-export default function Table({ sortUsers, contactUsers }) {
+export default function Table({ sortUsers, contactUsers, handleDelete, handleUpdate }) {
 	return <>
 		<div>
-			<SearchElement/>
 			<table className='table'>
 				<thead>
 					<tr>
@@ -25,10 +22,10 @@ export default function Table({ sortUsers, contactUsers }) {
 							<th>{item.phone}</th>
 							<th>{item.website}</th>
 							<th>
-								<button className="edit-btn">Редактирование данных</button>
+								<button className="edit-btn" onClick={() => { handleUpdate(item) }}>Редактирование данных</button>
 							</th>
 							<th>
-								<button className="delete-btn">Удаление пользователя</button>
+								<button className="delete-btn" onClick={() => { handleDelete(item) }}>Удаление пользователя</button>
 							</th>
 						</tr>
 					)))}
