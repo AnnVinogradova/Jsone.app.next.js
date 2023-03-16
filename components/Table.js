@@ -1,8 +1,10 @@
-import InputForm from "./InputForm"
+
+import SearchElement from "./searchElement"
 
 export default function Table({ sortUsers, contactUsers }) {
 	return <>
 		<div>
+			<SearchElement/>
 			<table className='table'>
 				<thead>
 					<tr>
@@ -11,6 +13,7 @@ export default function Table({ sortUsers, contactUsers }) {
 						<th onClick={() => { sortUsers('email') }}>Email</th>
 						<th onClick={() => { sortUsers('phone') }}>Phone</th>
 						<th onClick={() => { sortUsers('website') }}>Website</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>

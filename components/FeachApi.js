@@ -40,7 +40,7 @@ export default function FeachAPI() {
 	}
 
 	// sortUsers.unshift(newRow)
-	console.log(newRow)
+	// console.log(newRow)
 
 	return <>
 		<div className='table-block'>
