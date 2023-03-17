@@ -11,6 +11,7 @@ export default function Table({ sortUsers, contactUsers, handleDelete, handleUpd
 						<th onClick={() => { sortUsers('phone') }}>Phone</th>
 						<th onClick={() => { sortUsers('website') }}>Website</th>
 						<th>Action</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>

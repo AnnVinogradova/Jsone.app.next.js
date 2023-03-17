@@ -26,6 +26,7 @@ export default function FeachAPI() {
 		setContactUsers(sortUsers);
 		setDirectionSort(!directionSort);
 	}
+
 	useEffect(() => {
 		axios.get(url)
 			.then(
@@ -37,10 +38,9 @@ export default function FeachAPI() {
 
 
 	const getInputFormData = ({ id, username, email, phone, website }) => {
-		setNewRow({ id, username, email, phone, website })
+		setNewRow({ id, username, email, phone, website });
 	}
 
-	// sortUsers.unshift(newRow)
 	console.log(newRow)
 
 	const handleDelete = async (user) => {
