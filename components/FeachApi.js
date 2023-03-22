@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { userAgentFromString } from 'next/server'
+import { useEffect, useRef, useState } from 'react'
 import Table from './Table'
 
 export default function FeachAPI() {
@@ -31,9 +32,18 @@ export default function FeachAPI() {
 		setUser(prevData => prevData.concat(newUser))
 	}
 
+	function handleEdit() {
+
+	}
+
+	function handleDelete(id) {
+		const updateData = user.filter((u) => id !== u.id)
+		setUser(updateData)
+	}
+
 	return <>
 		<div className='table-block'>
-			<Table user={user} handleValues={handleValues} />
+			<Table user={user} handleValues={handleValues} handleDelete={handleDelete} />
 		</div>
 	</>
 }

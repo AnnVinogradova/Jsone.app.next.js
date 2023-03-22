@@ -82,3 +82,12 @@ input{
 	width: 200px;
 	padding: 6px;
 }
+
+.add-form{
+	display: flex;
+	justify-content: center;
+}
+
+.add-btn{
+	background-color: #b29d3e;
+}
