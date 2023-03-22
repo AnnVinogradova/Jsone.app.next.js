@@ -1,63 +1,39 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import Table from './Table'
-import InputForm from './InputForm'
 
 export default function FeachAPI() {
-	const url = 'https://jsonplaceholder.typicode.com/users'
+	const [user, setUser] = useState([])
 
-	const [contactUsers, setContactUsers] = useState([]);
-	const [directionSort, setDirectionSort] = useState([]);
-	const [newRow, setNewRow] = useState([]);
-
-	const sortUsers = (field) => {
-		const newData = contactUsers.concat();
-
-		let sortUsers;
-
-		if (directionSort) {
-			sortUsers = newData.sort(
-				(a, b) => { return a[field] > b[field] ? 1 : -1 }
-			)
-		} sortUsers = newData.reverse(
-			(a, b) => { return a[field] > b[field] ? 1 : -1 }
-		)
-
-		setContactUsers(sortUsers);
-		setDirectionSort(!directionSort);
+	const fetchData = () => {
+		fetch('https://jsonplaceholder.typicode.com/users')
+			.then(response => response.json())
+			.then(data => setUser(data))
+			.catch(err => console.log(err))
 	}
 
 	useEffect(() => {
-		axios.get(url)
-			.then(
-				(res) => {
-					setContactUsers(res.data)
-				}
-			)
+		fetchData();
 	}, [])
 
-
-	const getInputFormData = ({ id, username, email, phone, website }) => {
-		setNewRow({ id, username, email, phone, website });
+	function handleValues(evt) {
+		evt.preventDefault();
+		const username = evt.target.elements.username.value;
+		const email = evt.target.elements.email.value;
+		const phone = evt.target.elements.phone.value;
+		const website = evt.target.elements.website.value;
+		const newUser = {
+			id: + Math.floor((Math.random() * 999999)),
+			username,
+			email,
+			phone,
+			website,
+		}
+		setUser(prevData => prevData.concat(newUser))
 	}
-
-	console.log(newRow)
-
-	const handleDelete = async (user) => {
-		await axios.delete(url + "/" + user.id + user);
-		setContactUsers(contactUsers.filter((u) => u.id !== user.id))
-	}
-
-
 
 	return <>
 		<div className='table-block'>
-			<InputForm getInputFormData={getInputFormData} />
-			<Table contactUsers={contactUsers}
-				sortUsers={sortUsers}
-				handleDelete={handleDelete}
-				
-			/>
+			<Table user={user} handleValues={handleValues} />
 		</div>
 	</>
 }

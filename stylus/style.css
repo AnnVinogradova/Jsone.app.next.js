@@ -76,3 +76,9 @@ align-items: center;
 	margin-left: 34px;
 	margin-top: 8px;
 }
+
+input{
+	margin: 6px;
+	width: 200px;
+	padding: 6px;
+}
