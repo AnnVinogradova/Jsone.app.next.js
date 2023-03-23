@@ -1,7 +1,7 @@
 import EditMember from "./EditMember"
 import { useState } from 'react'
 
-export default function Table({ user, setUser, handleDelete, handleValues }) {
+export default function Table({ user, setUser, handleDelete, handleValues, getSort }) {
 	const [editState, setEditState] = useState([-1])
 
 	function handleEdit(id) {
@@ -32,10 +32,10 @@ export default function Table({ user, setUser, handleDelete, handleValues }) {
 				<form onSubmit={handleValues} >
 					<input type='text' name='username' placeholder="Enter Name"></input>
 					<input type='text' name='email' placeholder="Enter Email"></input>
-					<input type='text' name='address.city' placeholder="Enter City"></input>
+					{/* <input type='text' name='address.city' placeholder="Enter City"></input> */}
 					<input type='text' name='phone' placeholder="Enter Phone"></input>
 					<input type='text' name='website' placeholder="Enter Website"></input>
-					<input type='text' name='company.name' placeholder="Enter Company"></input>
+					{/* <input type='text' name='company.name' placeholder="Enter Company"></input> */}
 					<button className="add-btn">Add User</button>
 				</form>
 			</div>
@@ -46,10 +46,10 @@ export default function Table({ user, setUser, handleDelete, handleValues }) {
 							<th>Id</th>
 							<th>Name</th>
 							<th>Email</th>
-							<th>Address</th>
+							{/* <th>Address</th> */}
 							<th>Phone</th>
 							<th>Website</th>
-							<th>Company.name</th>
+							{/* <th>Company.name</th> */}
 							<th>Action</th>
 							<th>Action</th>
 						</tr>
@@ -61,10 +61,10 @@ export default function Table({ user, setUser, handleDelete, handleValues }) {
 									<th>{item.id}</th>
 									<th>{item.username}</th>
 									<th>{item.email}</th>
-									<th>{item.address.city}</th>
+									{/* <th>{item.address.city}</th> */}
 									<th>{item.phone}</th>
 									<th>{item.website}</th>
-									<th>{item.company.name}</th>
+									{/* <th>{item.company.name}</th> */}
 									<th>
 										<button className="edit-btn" type='button' onClick={() => { handleEdit(item.id) }}>Edit User</button>
 									</th>

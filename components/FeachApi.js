@@ -21,14 +21,18 @@ export default function FeachAPI() {
 		evt.preventDefault();
 		const username = evt.target.elements.username.value;
 		const email = evt.target.elements.email.value;
+		// const address = evt.target.elements.address.city.value;
 		const phone = evt.target.elements.phone.value;
 		const website = evt.target.elements.website.value;
+		// const company = evt.target.elements.company.name.value;
 		const newUser = {
 			id: + Math.floor((Math.random() * 999999)),
 			username,
 			email,
+			// address,
 			phone,
 			website,
+			// company,
 		}
 		setUser(prevData => prevData.concat(newUser))
 	}
