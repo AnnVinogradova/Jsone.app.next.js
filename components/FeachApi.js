@@ -1,9 +1,10 @@
-import { userAgentFromString } from 'next/server'
-import { useEffect, useRef, useState } from 'react'
+
+import { useEffect, useState } from 'react'
 import Table from './Table'
 
 export default function FeachAPI() {
 	const [user, setUser] = useState([])
+
 
 	const fetchData = () => {
 		fetch('https://jsonplaceholder.typicode.com/users')
@@ -32,9 +33,6 @@ export default function FeachAPI() {
 		setUser(prevData => prevData.concat(newUser))
 	}
 
-	function handleEdit() {
-
-	}
 
 	function handleDelete(id) {
 		const updateData = user.filter((u) => id !== u.id)
