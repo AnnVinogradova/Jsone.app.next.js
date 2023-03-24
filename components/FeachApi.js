@@ -4,7 +4,9 @@ import Table from './Table'
 
 export default function FeachAPI() {
 	const [user, setUser] = useState([])
-
+	const [nextId, setNextId] = useState(11);
+	const [sortType, setSortType] = useState('asc');
+	const [sortUsers, setSortUsers] = useState(null); sortUsers
 
 	const fetchData = () => {
 		fetch('https://jsonplaceholder.typicode.com/users')
@@ -21,20 +23,21 @@ export default function FeachAPI() {
 		evt.preventDefault();
 		const username = evt.target.elements.username.value;
 		const email = evt.target.elements.email.value;
-		// const address = evt.target.elements.address.city.value;
+		const address = evt.target.elements.address;
 		const phone = evt.target.elements.phone.value;
 		const website = evt.target.elements.website.value;
-		// const company = evt.target.elements.company.name.value;
+		const company = evt.target.elements.company;
 		const newUser = {
-			id: + Math.floor((Math.random() * 999999)),
+			id: nextId,
 			username,
 			email,
-			// address,
+			address,
 			phone,
 			website,
-			// company,
+			company,
 		}
 		setUser(prevData => prevData.concat(newUser))
+		setNextId(nextId + 1)
 	}
 
 
@@ -42,6 +45,7 @@ export default function FeachAPI() {
 		const updateData = user.filter((u) => id !== u.id)
 		setUser(updateData)
 	}
+
 
 	return <>
 		<div className='table-block'>
