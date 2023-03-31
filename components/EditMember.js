@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 
 export default function EditMember({ user, onEditUser }) {
+	console.log('EditMember user=',user); // смотрим что пришло и видим что раньше был массив
 	const [name, setName] = useState(user.name);
 	const [email, setEmail] = useState(user.email);
 	const [phone, setPhone] = useState(user.phone);
-	const [address, setAddress] = useState(user.address);
+	const [address, setAddress] = useState(user.address.city);
 	const [website, setWebsite] = useState(user.website);
-	const [company, setCompany] = useState(user.website);
+	const [company, setCompany] = useState(user.company.name);
 	const handleSubmit = (evt) => {
 		evt.preventDefault();
-		const updateUser = { name, email, phone, address, website, company };
+		const updateUser = { name, email, phone, address:{city:address}, website, company:{name:company} };
 		onEditUser(updateUser);
 	}
 
@@ -25,3 +26,6 @@ export default function EditMember({ user, onEditUser }) {
 		</tr>
 	</>
 }
+
+// это компонент правильно организован нет лишних стейтов или пропсов
+// только то что надо
